@@ -1,0 +1,25 @@
+.input {
+  border: 1px solid #ffb400;
+  border-radius: 15px;
+  margin: 5%;
+}
+.label {
+  font-size: 20px;
+  text-align: center;
+}
+ion-button {
+  height: 50px;
+  width: 150px;
+  font-size: 20px;
+}
+.center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.image {
+  display: flex;
+  justify-content: center;
+}

@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>recipe</ion-title>
+    <ion-title><h1>Recipe Search</h1></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+ <div class="image">
+    <img
+      src="assets/images/logo/logo.jpg"
+      style="height: 300px; width: 300px"
+    />
+  </div>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="label">Enter Recipe you want to search </div>
+    <div class="center">
+      <ion-input
+        class="input"
+        type="text"
+        name="searched"
+        ngModel
+        required
+      ></ion-input>
+    </div>
+    <br /><br />
+    <div class="center">
+      <ion-button type="submit" color="warning" [disabled]="f.invalid"
+        >Submit</ion-button
+      >
+    </div>
+  </form>
 </ion-content>
