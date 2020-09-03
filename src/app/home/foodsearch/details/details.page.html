@@ -5,33 +5,31 @@
 </ion-header>
 
 <ion-content>
-<div *ngFor="let data of Dataparsed">
-  <ion-card>
-   
-    <ion-card-content>
-      <ion-card-title>
-        {{data.food.label}}
-        </ion-card-title>
-        <ion-card-subtitle>
-          {{data.food.categoryLabel}}
-          </ion-card-subtitle>
-           <ion-img [src]="data.food.image"></ion-img>
-           <div>
-             <ion-button color="warning" (click)="details(data)">More Details</ion-button>
-             </div>
-    </ion-card-content>
+  <div *ngFor="let data of Dataparsed">
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title> {{data.food.label}} </ion-card-title>
+        <ion-card-subtitle> {{data.food.categoryLabel}} </ion-card-subtitle>
+        <ion-img [src]="data.food.image"></ion-img>
+        <div>
+          <ion-button color="warning" (click)="details(data)"
+            >More Details</ion-button
+          >
+        </div>
+      </ion-card-content>
     </ion-card>
   </div>
-  <div >
-  <ion-list *ngFor="let hint of DataHint">
-    <ion-item detail (click)="details(hint)">
-      <ion-thumbnail slot="start">
-        <ion-img [src]="hint.food.image"></ion-img>
-        </ion-thumbnail>
-     
-      <p>{{hint.food.label}}</p>
-        <p>{{hint.food.label}}</p>
+  <div>
+    <ion-list *ngFor="let hint of DataHint">
+      <ion-item detail (click)="details(hint)">
+        <ion-avatar slot="start">
+          <ion-img [src]="hint.food.image"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h1>{{hint.food.label}}</h1>
+          <h3>{{hint.food.category}}</h3>
+        </ion-label>
       </ion-item>
     </ion-list>
-    </div>
+  </div>
 </ion-content>
