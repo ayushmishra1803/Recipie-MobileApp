@@ -30,11 +30,11 @@ export class AppComponent {
 	}
 	ngOnInit() {
 		this.storage
-			.get("User")
+			.get("Users")
 			.then((re) => {
 				console.log(re+" then");
 
-				if (re === null) {
+				if (re ===null) {
 					this.router.navigate(["/entry-pages"]);
 				} else {
 					this.router.navigate(["/home"]);
