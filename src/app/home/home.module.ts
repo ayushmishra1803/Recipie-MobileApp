@@ -15,6 +15,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 		IonicModule,
 		HomePageRoutingModule,
 		IonicStorageModule,
+		FormsModule
 	],
 	declarations: [HomePage],
 })

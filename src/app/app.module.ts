@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -8,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicStorageModule } from "@ionic/storage";
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from "@angular/common/http"
 @NgModule({
 	declarations: [AppComponent],
 	entryComponents: [],
@@ -16,6 +18,9 @@ import { AppRoutingModule } from './app-routing.module';
 		IonicModule.forRoot(),
 		AppRoutingModule,
 		IonicStorageModule.forRoot(),
+		FormsModule,
+		ReactiveFormsModule,
+		HttpClientModule
 	],
 	providers: [
 		StatusBar,
