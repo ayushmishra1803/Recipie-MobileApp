@@ -9,8 +9,12 @@ export class FoodDatabaseService {
 	FoodDatabseApp_id = "4a81b8a2";
 	FoodDatabseKEy = "b90f3fdd1001327868c2e516d83f8ef6";
 	Ingredients: string;
+
 	setIngredients(data) {
 		this.Ingredients = data;
+	}
+	getIngredients() {
+		return this.Ingredients;
 	}
 	getFoodFromDatabase() {
 		return this.http.get(

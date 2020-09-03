@@ -9,16 +9,17 @@ import { Component, OnInit } from "@angular/core";
 })
 export class DetailsPage implements OnInit {
 	constructor(private service: FoodDatabaseService) {}
-  dataobs = new Observable();
-  DataArray:any;
-  dataSub=new Subscription;
+	dataobs = new Observable();
+	DataArray: any;
+	dataSub = new Subscription();
+	Ingredients:string;
 	ngOnInit() {
-    this.dataobs = this.service.getFoodFromDatabase();
-    this.dataSub=this.dataobs.subscribe(re=>{
-      console.log(re + "relog");
-      this.DataArray=re;
-      console.log(this.DataArray);
-      
-    })
+    this.Ingredients=this.service.getIngredients();
+		this.dataobs = this.service.getFoodFromDatabase();
+		this.dataSub = this.dataobs.subscribe((re) => {
+			console.log(re + "relog");
+			this.DataArray = re;
+			console.log(this.DataArray);
+		});
 	}
 }
