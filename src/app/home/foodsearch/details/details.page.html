@@ -17,7 +17,7 @@
           </ion-card-subtitle>
            <ion-img [src]="data.food.image"></ion-img>
            <div>
-             <ion-button color="warning" (click)="details(data)"></ion-button>
+             <ion-button color="warning" (click)="details(data)">More Details</ion-button>
              </div>
     </ion-card-content>
     </ion-card>
@@ -29,7 +29,8 @@
         <ion-img [src]="hint.food.image"></ion-img>
         </ion-thumbnail>
      
-        <ion-label>{{hint.food.label}}</ion-label>
+      <p>{{hint.food.label}}</p>
+        <p>{{hint.food.label}}</p>
       </ion-item>
     </ion-list>
     </div>
