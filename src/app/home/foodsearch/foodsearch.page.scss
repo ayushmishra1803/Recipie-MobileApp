@@ -1,9 +1,11 @@
 .input {
   border: 1px solid #ffb400;
   border-radius: 15px;
+  margin: 5%;
 }
 .label {
   font-size: 20px;
+  text-align: center;
 }
 ion-button {
   height: 50px;
@@ -11,9 +13,13 @@ ion-button {
   font-size: 20px;
 }
 .center {
-  left: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
-.image{
+.image {
   display: flex;
   justify-content: center;
 }

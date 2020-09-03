@@ -1,6 +1,5 @@
 <ion-header>
   <ion-toolbar>
-   
     <ion-title><h1>Food Database</h1></ion-title>
   </ion-toolbar>
 </ion-header>
@@ -8,18 +7,26 @@
 <ion-content>
   <div class="image">
     <img
-			src="assets/images/logo/logo.jpg"
-			style="height: 300px; width: 300px"
-		/>
+      src="assets/images/logo/logo.jpg"
+      style="height: 300px; width: 300px"
+    />
+  </div>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="label">Enter Incredient</div>
+    <div class="center">
+      <ion-input
+        class="input"
+        type="text"
+        name="searched"
+        ngModel
+        required
+      ></ion-input>
     </div>
- 	<form (ngSubmit)="onSubmit(f)" #f="ngForm">
-  <ion-item>
-    <ion-label position="stacked" class="label">Enter Incredient</ion-label><br>
-    <ion-input class="input" type="text" name="searched" ngModel required></ion-input>
-  </ion-item>
-  <br /><br />
-  <ion-item class="center">
-    <ion-button type="submit" color="warning" [disabled]="f.invalid">Submit</ion-button>
-  </ion-item>
+    <br /><br />
+    <div class="center">
+      <ion-button type="submit" color="warning" [disabled]="f.invalid"
+        >Submit</ion-button
+      >
+    </div>
   </form>
 </ion-content>
