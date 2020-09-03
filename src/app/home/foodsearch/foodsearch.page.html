@@ -5,12 +5,19 @@
 </ion-header>
 
 <ion-content>
+  <div class="image">
+    <img
+			src="assets/images/logo/logo.jpg"
+			style="height: 300px; width: 300px"
+		/>
+    </div>
+ 	
   <ion-item>
     <ion-label position="stacked" class="label">Enter Incredient</ion-label>
     <ion-input class="input"></ion-input>
   </ion-item>
   <br /><br />
   <ion-item class="center">
-    <ion-button color="danger" (click)="onSubmit()">Submit</ion-button>
+    <ion-button color="warning" (click)="onSubmit()">Submit</ion-button>
   </ion-item>
 </ion-content>
