@@ -13,7 +13,8 @@ import { FoodsearchPage } from './foodsearch.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    FoodsearchPageRoutingModule
+    FoodsearchPageRoutingModule,
+    FormsModule
   ],
   declarations: [FoodsearchPage]
 })
