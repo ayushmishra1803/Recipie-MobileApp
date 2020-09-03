@@ -1,9 +1,31 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>SingleRecipeDetails</ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button defaultHerf="home/tabs/recipe/recipe-details">
+			</ion-back-button>
+		</ion-buttons>
+		<ion-title>Details</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
+	<div style="display: flex; justify-content: center">
+		<h1>{{data.recipe.label}}</h1>
+	</div>
+	<div>
+		<ion-img [src]="data.recipe.image"></ion-img>
+	</div>
+	<div>
+		<section style="display: flex; justify-content: center">
+			<h1 style="padding: 10px">Ingredient</h1>
+		</section>
+
+		<ion-list *ngFor="let data of data.recipe.ingredients">
+			<ion-item> {{data.text}} </ion-item>
+		</ion-list>
+  </div>
+  <div style="display: flex; justify-content: center;">
+   <h1>Nutrients</h1>
+    </div>
 
 </ion-content>
