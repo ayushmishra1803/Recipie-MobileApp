@@ -3,7 +3,8 @@ import { RouterModule, Routes } from "@angular/router";
 import { HomePage } from "./home.page";
 const routes: Routes = [
 	{
-		path: "",redirectTo: "tabs/foodsearch",
+		path: "",
+		redirectTo: "tabs/foodsearch",
 	},
 	{
 		path: "tabs",
@@ -15,6 +16,11 @@ const routes: Routes = [
 					import("./foodsearch/foodsearch.module").then(
 						(m) => m.FoodsearchPageModule,
 					),
+			},
+			{
+				path: "recipe",
+				loadChildren: () =>
+					import("./recipe/recipe.module").then((m) => m.RecipePageModule),
 			},
 		],
 	},
