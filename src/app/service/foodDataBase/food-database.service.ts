@@ -10,7 +10,7 @@ export class FoodDatabaseService {
 	private FoodDatabseApp_id = "4a81b8a2";
 	private FoodDatabseKEy = "b90f3fdd1001327868c2e516d83f8ef6";
 	 Ingredients: string ;
-	Details:any[]
+	private Details:any[]
 	setIngredients(data) {
 		console.log(data);
 		
