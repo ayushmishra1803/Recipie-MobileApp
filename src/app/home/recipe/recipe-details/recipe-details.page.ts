@@ -1,3 +1,4 @@
+import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { Observable } from "rxjs";
 import { LoadingController } from "@ionic/angular";
@@ -13,9 +14,10 @@ export class RecipeDetailsPage implements OnInit {
 	constructor(
 		private service: RecipeService,
 		private controler: LoadingController,
+		private router: Router,
 	) {}
 
-	DataObs = new Observable();
+	DataObs = new Observable<{ hits: any[] }>();
 	DataSub = new Subscription();
 	DataArray: any;
 	ngOnInit() {
@@ -29,10 +31,16 @@ export class RecipeDetailsPage implements OnInit {
 				this.DataObs = this.service.getRecipe();
 				this.DataSub = this.DataObs.subscribe((re) => {
 					console.log(re);
-					this.DataArray = re;
-          console.log(this.DataArray);
-          loader.dismiss();
+					this.DataArray = re.hits;
+					console.log(this.DataArray);
+					loader.dismiss();
 				});
 			});
+	}
+	details(data: any[]) {
+		this.service.setData(data);
+		this.router.navigate([
+			"/home/tabs/recipe/recipe-details/single-recipe-details",
+		]);
 	}
 }
