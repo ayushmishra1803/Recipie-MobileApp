@@ -7,7 +7,7 @@
 <ion-content>
 <div *ngFor="let data of Dataparsed">
   <ion-card>
-    <ion-img [src]="data.food.image"></ion-img>
+   
     <ion-card-content>
       <ion-card-title>
         {{data.food.label}}
@@ -15,7 +15,18 @@
         <ion-card-subtitle>
           {{data.food.categoryLabel}}
           </ion-card-subtitle>
+           <ion-img [src]="data.food.image"></ion-img>
     </ion-card-content>
     </ion-card>
   </div>
+  <div>
+    <ion-list *ngFor="let dataHints of dataHints">
+      <ion-item >
+        <ion-thumbnail slot="start">
+          <img [src]="dataHints.food.food">
+        </ion-thumbnail>
+        <ion-label>{{dataHints.food.label}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
 </ion-content>
