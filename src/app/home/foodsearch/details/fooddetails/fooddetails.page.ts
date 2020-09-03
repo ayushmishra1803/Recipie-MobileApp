@@ -8,8 +8,10 @@ import { Component, OnInit } from "@angular/core";
 })
 export class FooddetailsPage implements OnInit {
 	constructor(private service: FoodDatabaseService) {}
-	data: any[];
+	data: any;
 	ngOnInit() {
-		this.data = this.service.getDetails();
+    this.data = this.service.getDetails();
+    console.log(this.data);
+    
 	}
 }
