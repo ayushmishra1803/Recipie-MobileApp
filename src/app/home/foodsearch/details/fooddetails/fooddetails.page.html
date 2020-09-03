@@ -1,49 +1,49 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons>
-      <ion-back-button
-        color="warning"
-        defaultHref="/home/tabs/foodsearch/details"
-      >
-      </ion-back-button>
-    </ion-buttons>
-    <ion-title><h1>Food Details</h1></ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-buttons>
+			<ion-back-button
+				color="warning"
+				defaultHref="/home/tabs/foodsearch/details"
+			>
+			</ion-back-button>
+		</ion-buttons>
+		<ion-title><h1>Food Details</h1></ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <h1 style="padding: 10px">About {{data.food.label}}</h1>
-  <div>
-    <ion-img [src]="data.food.image"></ion-img>
-  </div>
-  <div>
-    <ion-list>
-      <ion-item> Category : {{data.food.category}} </ion-item>
-      <ion-item> Category Label : {{data.food.categoryLabel}} </ion-item>
-      <!-- <ion-item>
+	<h1 style="padding: 10px">About {{data.food.label}}</h1>
+	<div>
+		<ion-img [src]="data.food.image"></ion-img>
+	</div>
+	<div>
+		<ion-list>
+			<ion-item> Category : {{data.food.category}} </ion-item>
+			<ion-item> Category Label : {{data.food.categoryLabel}} </ion-item>
+			<!-- <ion-item>
         
         foodId:{{data.food.foodId}}
         </ion-item>
          -->
-    </ion-list>
-  </div>
-  <div>
-    <h1>Nutrients</h1>
-    <table>
-      <tr>
-        <th>Calories</th>
-        <th>Protien</th>
-        <th>Fat</th>
-        <th>CHOCDF</th>
-        <th>Fibre</th>
-      </tr>
-      <tr>
-        <td>{{data.nutrients.ENERC_KCAL}}</td>
-        <td>{{data.nutrients.PROCNT}}</td>
-        <td>{{data.nutrients.FAT}}</td>
-        <td>{{data.nutrients.CHOCDF}}</td>
-        <td>{{data.nutrients.FIBTG}}</td>
-      </tr>
-    </table>
-  </div>
+		</ion-list>
+	</div>
+	<div>
+		<h1>Nutrients</h1>
+		<table>
+			<tr>
+				<th>Calories</th>
+				<th>Protien</th>
+				<th>Fat</th>
+				<th>CHOCDF</th>
+				<th>Fibre</th>
+			</tr>
+			<tr>
+				<td>{{data.food.nutrients.CHOCDF}}</td>
+				<td>{{data.food.nutrients.PROCNT}}</td>
+				<td>{{data.food.nutrients.FAT}}</td>
+				<td>{{data.food.nutrients.CHOCDF}}</td>
+				<td>{{data.food.nutrients.FIBTG}}</td>
+			</tr>
+		</table>
+	</div>
 </ion-content>
