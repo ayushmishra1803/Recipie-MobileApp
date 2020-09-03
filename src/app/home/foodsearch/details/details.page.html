@@ -19,14 +19,15 @@
     </ion-card-content>
     </ion-card>
   </div>
-  <div>
-    <ion-list *ngFor="let dataHints of dataHints">
-      <ion-item >
-        <ion-thumbnail slot="start">
-          <img [src]="dataHints.food.food">
+  <div >
+  <ion-list *ngFor="let hint of DataHint">
+    <ion-item detail>
+      <ion-thumbnail slot="start">
+        <ion-img [src]="hint.food.image"></ion-img>
         </ion-thumbnail>
-        <ion-label>{{dataHints.food.label}}</ion-label>
-        </ion-item>
-      </ion-list>
+     
+        <ion-label>{{hint.food.category}}</ion-label>
+      </ion-item>
+    </ion-list>
     </div>
 </ion-content>
