@@ -1,0 +1,23 @@
+.nut {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  table {
+    border: 1px solid #ffb400;
+    th {
+      text-align: center;
+      width: 60%;
+      padding: 5px;
+    }
+    td {
+      text-align: center;
+      width: 60%;
+      padding: 5px;
+    }
+  }
+}
+h1{
+    text-align: center;
+}
