@@ -13,7 +13,7 @@ export class EntryPagesPage implements OnInit {
 	ngOnInit() {}
 	startApp() {
 		this.storage
-			.set("Users", true)
+			.set("FirsTimeUsers", true)
 			.then((re) => {
         console.log(re);
         
