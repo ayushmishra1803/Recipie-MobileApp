@@ -32,7 +32,7 @@ export class AppComponent {
 		this.storage
 			.get("User")
 			.then((re) => {
-				console.log(re);
+				console.log(re+" then");
 
 				if (re === null) {
 					this.router.navigate(["/entry-pages"]);
