@@ -16,17 +16,20 @@
           {{data.food.categoryLabel}}
           </ion-card-subtitle>
            <ion-img [src]="data.food.image"></ion-img>
+           <div>
+             <ion-button color="warning" (click)="details(data)"></ion-button>
+             </div>
     </ion-card-content>
     </ion-card>
   </div>
   <div >
   <ion-list *ngFor="let hint of DataHint">
-    <ion-item detail>
+    <ion-item detail (click)="details(hint)">
       <ion-thumbnail slot="start">
         <ion-img [src]="hint.food.image"></ion-img>
         </ion-thumbnail>
      
-        <ion-label>{{hint.food.category}}</ion-label>
+        <ion-label>{{hint.food.label}}</ion-label>
       </ion-item>
     </ion-list>
     </div>

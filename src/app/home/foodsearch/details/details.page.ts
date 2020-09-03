@@ -9,20 +9,23 @@ import { Component, OnInit } from "@angular/core";
 })
 export class DetailsPage implements OnInit {
 	constructor(private service: FoodDatabaseService) {}
-	dataobs = new Observable<{ hints: any[]; parsed :any[]}>();
+	dataobs = new Observable<{ hints: any[]; parsed: any[] }>();
 	DataHint: any[] = [];
 	dataSub = new Subscription();
-	Dataparsed:any[]=[]
+	Dataparsed: any[] = [];
 
 	ngOnInit() {
 		this.dataobs = this.service.getFoodFromDatabase();
 		this.dataSub = this.dataobs.subscribe((re) => {
 			console.log(re + "relog");
 			this.DataHint = re.hints;
-			this.Dataparsed=re.parsed
+			this.Dataparsed = re.parsed;
 			console.log(this.Dataparsed);
-			
+
 			console.log(this.DataHint);
 		});
+	}
+	details(data:any[]){
+
 	}
 }
