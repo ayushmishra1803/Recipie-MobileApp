@@ -1,3 +1,4 @@
+import { FoodDatabaseService } from './../../service/foodDataBase/food-database.service';
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from '@angular/forms';
 
@@ -7,10 +8,11 @@ import { NgForm } from '@angular/forms';
   styleUrls: ["./foodsearch.page.scss"],
 })
 export class FoodsearchPage implements OnInit {
-  constructor() {}
+  constructor(private service:FoodDatabaseService) {}
 
   ngOnInit() {}
   onSubmit(f:NgForm) {
     console.log("hello");
+    this.service.setIngredients(f.value.searched);
   }
 }
