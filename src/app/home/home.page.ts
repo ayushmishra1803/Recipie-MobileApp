@@ -7,21 +7,10 @@ import { Observable } from 'rxjs';
 	styleUrls: ["home.page.scss"],
 })
 export class HomePage implements OnInit {
-  constructor( private food:FoodDatabaseService) {}
-  FoodObs=new Observable();
+  constructor( ) {}
+
 	ngOnInit() {
   }
-	Searched = "";
-	onchange(){
-    console.log(this.Searched);
-    
-    
-
-    this.FoodObs = this.food.getFoodFromDatabase(this.Searched);
-    this.FoodObs.subscribe(re=>{
-      console.log(re);
-      
-    })
   }
 }
 //https://api.edamam.com/api/food-database/v2/parser?ingr=pasta&app_id=4a81b8a2&app_key=b90f3fdd1001327868c2e516d83f8ef6
