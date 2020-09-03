@@ -17,14 +17,9 @@
     <ion-img [src]="data.food.image"></ion-img>
   </div>
   <div>
-    <ion-list>
-      <ion-item> Category : {{data.food.category}} </ion-item>
-      <ion-item> Category Label : {{data.food.categoryLabel}} </ion-item>
-      <!-- <ion-item>
-        
-        foodId:{{data.food.foodId}}
-        </ion-item>
-         -->
+    <ion-list >
+      <h4 class="nut">Category : {{data.food.category}}</h4>
+      <h4 class="nut">Category Label : {{data.food.categoryLabel}}</h4>
     </ion-list>
   </div>
   <div>
@@ -33,32 +28,26 @@
       <table>
         <tr>
           <th>Nutrient</th>
-          <th></th>
           <th>Value</th>
         </tr>
         <tr>
           <td>Calories</td>
-          <td>:</td>
           <td>{{data.food.nutrients.ENERC_KCAL}}</td>
         </tr>
         <tr>
           <td>Protien</td>
-          <td>:</td>
           <td>{{data.food.nutrients.PROCNT}}</td>
         </tr>
         <tr>
           <td>Fat</td>
-          <td>:</td>
           <td>{{data.food.nutrients.FAT}}</td>
         </tr>
         <tr>
           <td>CHOCDF</td>
-          <td>:</td>
           <td>{{data.food.nutrients.CHOCDF}}</td>
         </tr>
         <tr>
           <td>Fibre</td>
-          <td>:</td>
           <td>{{data.food.nutrients.FIBTG}}</td>
         </tr>
       </table>

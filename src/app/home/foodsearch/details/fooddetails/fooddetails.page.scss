@@ -5,19 +5,22 @@
   align-items: center;
   text-align: center;
   table {
+    width: 80%;
     border: 1px solid #ffb400;
     th {
       text-align: center;
-      width: 60%;
+      width: 50%;
       padding: 5px;
+      border: 1px solid #ffb400;
     }
     td {
       text-align: center;
-      width: 60%;
+      width: 50%;
       padding: 5px;
+      border: 1px solid #ffb400;
     }
   }
 }
-h1{
-    text-align: center;
+h1 {
+  text-align: center;
 }
