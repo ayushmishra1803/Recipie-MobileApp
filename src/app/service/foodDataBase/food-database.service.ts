@@ -22,7 +22,7 @@ export class FoodDatabaseService {
 			`https://api.edamam.com/api/food-database/v2/parser?ingr=${this.Ingredients}&app_id=${this.FoodDatabseApp_id}&app_key=${this.FoodDatabseKEy}`,
 		);
 		
-		return this.http.get(
+		return this.http.get<{ hints: any[]; parsed:any[] }>(
 			`https://api.edamam.com/api/food-database/v2/parser?ingr=${this.Ingredients}&app_id=${this.FoodDatabseApp_id}&app_key=${this.FoodDatabseKEy}`,
 		);
 	}
