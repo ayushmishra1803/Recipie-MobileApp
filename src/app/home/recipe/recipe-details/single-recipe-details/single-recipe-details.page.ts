@@ -20,19 +20,19 @@ export class SingleRecipeDetailsPage implements OnInit {
   expandtotaldaily() {
     this.dailyclick = this.dailyclick + 1;
     if (this.dailyclick % 2 === 0) {
+      this.totaldaily = false;
+    } else {
       this.totaldaily = true;
       this.totalnutrient = false;
-    } else {
-      this.totaldaily = false;
     }
   }
   expandtotalnutrient() {
     this.nutrientclick = this.nutrientclick + 1;
     if (this.nutrientclick % 2 === 0) {
+      this.totalnutrient = false;
+    } else {
       this.totaldaily = false;
       this.totalnutrient = true;
-    } else {
-      this.totalnutrient = false;
     }
   }
 }
