@@ -1,31 +1,470 @@
 <ion-header>
-	<ion-toolbar>
-		<ion-buttons slot="start">
-			<ion-back-button defaultHerf="home/tabs/recipe/recipe-details">
-			</ion-back-button>
-		</ion-buttons>
-		<ion-title>Details</ion-title>
-	</ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHerf="home/tabs/recipe/recipe-details">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Details</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-	<div style="display: flex; justify-content: center">
-		<h1>{{data.recipe.label}}</h1>
-	</div>
-	<div>
-		<ion-img [src]="data.recipe.image"></ion-img>
-	</div>
-	<div>
-		<section style="display: flex; justify-content: center">
-			<h1 style="padding: 10px">Ingredient</h1>
-		</section>
-
-		<ion-list *ngFor="let data of data.recipe.ingredients">
-			<ion-item> {{data.text}} </ion-item>
-		</ion-list>
+  <div style="display: flex; justify-content: center">
+    <h1>{{data.recipe.label}}</h1>
   </div>
-  <div style="display: flex; justify-content: center;">
-   <h1>Nutrients</h1>
-    </div>
+  <div>
+    <ion-img [src]="data.recipe.image"></ion-img>
+  </div>
+  <br />
+  <div style="display: flex; justify-content: center; font-size: 20px">
+    <ion-icon style="height: 30px; width: 30px" name="alarm-outline"></ion-icon>
+    {{data.recipe.totalTime }}
+  </div>
+  <div style="display: flex; justify-content: center; font-size: 20px">
+    Source : {{data.recipe.source}}
+  </div>
+  <div *ngIf="data.recipe.dietLabels.length!=0">
+    <section *ngFor="let hashtag of data.recipe.healthLabels">
+      <p style="color: #ffb400; font-size: 15px; text-align: center">
+        #{{hashtag}} &nbsp;
+      </p>
+    </section>
+  </div>
+  <div>
+    <section style="display: flex; justify-content: center">
+      <h1 style="padding: 10px">Ingredient</h1>
+    </section>
 
+    <ion-list *ngFor="let data of data.recipe.ingredients">
+      <ion-item> {{data.text}} </ion-item>
+    </ion-list>
+  </div>
+  <div style="display: flex; justify-content: center">
+    <h1 style="justify-content: flex-start">
+      Total Daily
+      <ion-icon
+        name="add-outline"
+        style="justify-content: flex-end"
+        (click)="expandtotaldaily()"
+      ></ion-icon>
+    </h1>
+  </div>
+  <div *ngIf="totaldaily===true">
+    <ion-list>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.CA.label}} :
+            {{data.recipe.totalDaily.CA.quantity|number}}{{data.recipe.totalDaily.CA.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.CHOCDF.label}} :
+            {{data.recipe.totalDaily.CHOCDF.quantity|number}}{{data.recipe.totalDaily.CHOCDF.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.CHOLE.label}} :
+            {{data.recipe.totalDaily.CHOLE.quantity|number}}{{data.recipe.totalDaily.CHOLE.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.ENERC_KCAL.label}} :
+            {{data.recipe.totalDaily.ENERC_KCAL.quantity|number}}{{data.recipe.totalDaily.ENERC_KCAL.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.FASAT.label}} :
+            {{data.recipe.totalDaily.FASAT.quantity|number}}{{data.recipe.totalDaily.FASAT.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.FAT.label}} :
+            {{data.recipe.totalDaily.FAT.quantity|number}}{{data.recipe.totalDaily.FAT.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.FE.label}} :
+            {{data.recipe.totalDaily.FE.quantity|number}}{{data.recipe.totalDaily.FE.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.FIBTG.label}} :
+            {{data.recipe.totalDaily.FIBTG.quantity|number}}{{data.recipe.totalDaily.FIBTG.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.FOLDFE.label}} :
+            {{data.recipe.totalDaily.FOLDFE.quantity|number}}{{data.recipe.totalDaily.FOLDFE.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.K.label}} :
+            {{data.recipe.totalDaily.K.quantity|number}}{{data.recipe.totalDaily.K.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.MG.label}} :
+            {{data.recipe.totalDaily.MG.quantity|number}}{{data.recipe.totalDaily.MG.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.NA.label}} :
+            {{data.recipe.totalDaily.NA.quantity|number}}{{data.recipe.totalDaily.NA.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.NIA.label}} :
+            {{data.recipe.totalDaily.NIA.quantity|number}}{{data.recipe.totalDaily.NIA.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.P.label}} :
+            {{data.recipe.totalDaily.P.quantity|number}}{{data.recipe.totalDaily.P.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.PROCNT.label}} :
+            {{data.recipe.totalDaily.PROCNT.quantity|number}}{{data.recipe.totalDaily.PROCNT.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.RIBF.label}} :
+            {{data.recipe.totalDaily.RIBF.quantity|number}}{{data.recipe.totalDaily.RIBF.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.THIA.label}} :
+            {{data.recipe.totalDaily.THIA.quantity|number}}{{data.recipe.totalDaily.THIA.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.TOCPHA.label}} :
+            {{data.recipe.totalDaily.TOCPHA.quantity|number}}{{data.recipe.totalDaily.TOCPHA.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.VITA_RAE.label}} :
+            {{data.recipe.totalDaily.VITA_RAE.quantity|number}}{{data.recipe.totalDaily.VITA_RAE.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.VITB6A.label}} :
+            {{data.recipe.totalDaily.VITB6A.quantity|number}}{{data.recipe.totalDaily.VITB6A.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.VITB12.label}} :
+            {{data.recipe.totalDaily.VITB12.quantity|number}}{{data.recipe.totalDaily.VITB12.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.VITC.label}} :
+            {{data.recipe.totalDaily.VITC.quantity|number}}{{data.recipe.totalDaily.VITC.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.VITD.label}} :
+            {{data.recipe.totalDaily.VITD.quantity|number}}{{data.recipe.totalDaily.VITD.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.VITK1.label}} :
+            {{data.recipe.totalDaily.VITK1.quantity|number}}{{data.recipe.totalDaily.VITK1.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalDaily.ZN.label}} :
+            {{data.recipe.totalDaily.ZN.quantity|number}}{{data.recipe.totalDaily.ZN.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div style="display: flex; justify-content: center">
+    <h1 style="justify-content: flex-start">
+      Total Nutrients
+      <ion-icon
+        name="add-outline"
+        style="justify-content: flex-end"
+        (click)="expandtotalnutrient()"
+      ></ion-icon>
+    </h1>
+  </div>
+  <div *ngIf="totalnutrient===true">
+    <ion-list>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.CA.label}} :
+            {{data.recipe.totalNutrients.CA.quantity|number}}{{data.recipe.totalNutrients.CA.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.CHOCDF.label}} :
+            {{data.recipe.totalNutrients.CHOCDF.quantity|number}}{{data.recipe.totalNutrients.CHOCDF.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.CHOLE.label}} :
+            {{data.recipe.totalNutrients.CHOLE.quantity|number}}{{data.recipe.totalNutrients.CHOLE.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.ENERC_KCAL.label}} :
+            {{data.recipe.totalNutrients.ENERC_KCAL.quantity|number}}{{data.recipe.totalNutrients.ENERC_KCAL.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.FASAT.label}} :
+            {{data.recipe.totalNutrients.FASAT.quantity|number}}{{data.recipe.totalNutrients.FASAT.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.FAT.label}} :
+            {{data.recipe.totalNutrients.FAT.quantity|number}}{{data.recipe.totalNutrients.FAT.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.FE.label}} :
+            {{data.recipe.totalNutrients.FE.quantity|number}}{{data.recipe.totalNutrients.FE.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.FIBTG.label}} :
+            {{data.recipe.totalNutrients.FIBTG.quantity|number}}{{data.recipe.totalNutrients.FIBTG.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.FOLDFE.label}} :
+            {{data.recipe.totalNutrients.FOLDFE.quantity|number}}{{data.recipe.totalNutrients.FOLDFE.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.K.label}} :
+            {{data.recipe.totalNutrients.K.quantity|number}}{{data.recipe.totalNutrients.K.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.MG.label}} :
+            {{data.recipe.totalNutrients.MG.quantity|number}}{{data.recipe.totalNutrients.MG.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.NA.label}} :
+            {{data.recipe.totalNutrients.NA.quantity|number}}{{data.recipe.totalNutrients.NA.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.NIA.label}} :
+            {{data.recipe.totalNutrients.NIA.quantity|number}}{{data.recipe.totalNutrients.NIA.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.P.label}} :
+            {{data.recipe.totalNutrients.P.quantity|number}}{{data.recipe.totalNutrients.P.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.PROCNT.label}} :
+            {{data.recipe.totalNutrients.PROCNT.quantity|number}}{{data.recipe.totalNutrients.PROCNT.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.RIBF.label}} :
+            {{data.recipe.totalNutrients.RIBF.quantity|number}}{{data.recipe.totalNutrients.RIBF.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.THIA.label}} :
+            {{data.recipe.totalNutrients.THIA.quantity|number}}{{data.recipe.totalNutrients.THIA.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.TOCPHA.label}} :
+            {{data.recipe.totalNutrients.TOCPHA.quantity|number}}{{data.recipe.totalNutrients.TOCPHA.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.VITA_RAE.label}} :
+            {{data.recipe.totalNutrients.VITA_RAE.quantity|number}}{{data.recipe.totalNutrients.VITA_RAE.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.VITB6A.label}} :
+            {{data.recipe.totalNutrients.VITB6A.quantity|number}}{{data.recipe.totalNutrients.VITB6A.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.VITB12.label}} :
+            {{data.recipe.totalNutrients.VITB12.quantity|number}}{{data.recipe.totalNutrients.VITB12.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.VITC.label}} :
+            {{data.recipe.totalNutrients.VITC.quantity|number}}{{data.recipe.totalNutrients.VITC.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.VITD.label}} :
+            {{data.recipe.totalNutrients.VITD.quantity|number}}{{data.recipe.totalNutrients.VITD.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.VITK1.label}} :
+            {{data.recipe.totalNutrients.VITK1.quantity|number}}{{data.recipe.totalNutrients.VITK1.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <p>
+            {{data.recipe.totalNutrients.ZN.label}} :
+            {{data.recipe.totalNutrients.ZN.quantity|number}}{{data.recipe.totalNutrients.ZN.unit}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
